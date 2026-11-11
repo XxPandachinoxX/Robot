@@ -1,0 +1,26 @@
+# Copia este archivo a config.yaml y ajústalo.
+mode: paper            # paper = simulado (sin dinero real) | live = dinero real
+data_source: exchange  # exchange = precios reales | synthetic = precios aleatorios (prueba sin internet)
+exchange: binance      # cualquier exchange soportado por ccxt
+symbol: BTC/USDT
+timeframe: 1m
+poll_seconds: 30
+
+starting_balance: 1000   # solo para modo paper
+trade_amount: 100        # USDT por operación
+fee_rate: 0.001          # 0.1 % por lado
+
+take_profit_pct: 1.0     # cierra al ganar 1 % neto (ya descontadas comisiones)
+stop_loss_pct: 2.0       # cierra si pierde 2 %
+trailing_stop_pct: 0.0   # ej. 0.3 = al llegar al TP no vende aún, sigue subiendo y vende si cae 0.3 % desde el máximo
+max_hold_minutes: 0      # 0 = sin límite de tiempo
+
+fast_ema: 9
+slow_ema: 21
+rsi_period: 14
+rsi_max_entry: 70
+
+max_trades_per_day: 20
+cooldown_minutes: 5
+state_file: state.json
+log_file: trades.csv
